@@ -1,0 +1,65 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+argh = "*"
+coverage = "*"
+django-extensions = "*"
+flake8 = "*"
+flake8-commas = "*"
+flake8-import-order = "*"
+model_mommy = "*"
+pygraphviz = "*"
+pylint = "*"
+watchdog = "*"
+
+[packages]
+boto3 = "*"
+braintree = "*"
+celery = "==4.4.5"
+dj-database-url = "*"
+django = ">=2.2.13, <3.0.0"
+django-admin-rangefilter = "*"
+django-celery-beat = "==2.1.0"
+django-celery-results = "==2.0.1"
+django-cors-headers = "*"
+django-filter = "*"
+django-import-export = "*"
+django-ipware = "*"
+django-model-utils = "*"
+django-object-actions = "*"
+django-redis = "*"
+django-silk = "*"
+django-storages = "*"
+djangorestframework = ">=3.11.0, <3.12.0"
+djangorestframework-camel-case = "*"
+djangorestframework-csv = "*"
+djangorestframework-simplejwt = "*"
+djoser = "==2.0.3"
+drf-flex-fields = "==0.9.0"
+drf-yasg = "*"
+elasticsearch-dsl = ">=7.0.0,<8.0.0"
+faker = "*"
+kombu = "==4.6.10"
+psycopg2-binary = "<2.9.0"
+pyjwt = "==1.7.1"
+pypodio2 = {git = "https://github.com/leadsherpa/podio-py.git", ref = "master"}
+redis = "*"
+requests = "==2.25.0"
+sentry-sdk = "*"
+simple-crypt = "*"
+simple-salesforce = "*"
+smartystreets-python-sdk = "==4.5.0"
+telnyx = "*"
+twilio = "*"
+unicodecsv = "*"
+uwsgi = "*"
+whitenoise = "==3.3"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

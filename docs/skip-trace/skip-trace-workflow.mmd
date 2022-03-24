@@ -1,0 +1,33 @@
+graph TD
+    A[CSV Upload] --> |File| B[Flatfile]
+    B --> |json| C[API: skiptrace]
+    C --> D[Map Fields: Create UploadSkipTrace, & Generate CSV File]
+    D --> E[Purchase]
+    E --> |API call: Braintree| F[Authorization] 
+    F --> G[Skip Trace Task]
+    G --> |Loop each row| H[Process Record]
+    H --> |Get/Create SkipTraceProperty| I[Validate Address]
+    I --> |API call: Smarty Streets | J{Match on System?}
+    J --> |Yes|K[Get data from database]
+    J --> |No|L[Get data from IDI API]
+    K --> M[Save data to SkipTraceProperty on database]
+    L --> |Validate IDI address: celery Smarty Streets| M
+    M --> N[Create Prospects and Property]
+    N --> O[Create Property on database]
+    O --> |Get list of up to 3 phones from SkipTraceProperty| P[Query Litigator list for phones]
+    P --> |For each phone| Q{Existing Prospect?}
+    Q --> |Yes| R[Get the existing record]
+    Q --> |No| S[Create Prospect object, do not save yet]
+    R --> T[Bulk update all existing Prospects - up to 3]
+    T --> U[Update phones, etc for Prospects: 2 new celery tasks]
+    S --> V[Bulk create new Prospects - up to 3]
+    V --> U 
+    U --> W[celery task 1] 
+    W --> Y[Get phone type and carrier]
+    Y -->|API call: Telnyx| Z[Create CampaingProspect on database]
+    Z --> AA[Create PropertyTags on database]
+    U --> X[celery task 2]
+    X --> BB[Auto verify Prospect: involves database query for counts of owner_verified_status]
+    BB --> CC[Validate address if it's not already validated: celery task to API call]
+    U --> DD[SkipTrace complete tasks]
+    DD --> EE[Celery task to send email confirmation]

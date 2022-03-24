@@ -1,0 +1,16 @@
+graph TD
+    A[User Creates DirectMailCampaign] -->|Sets drop date| B[Status: Scheduled]
+    B --> |72 hours before drop date - Order gets locked| C[Status: Locked]
+    C -->|48 hours before drop date - Order gets pushed to Yellowletter| D[Status: Processing]
+    D -->|24 hours before drop date| E[Status: In Production]
+    E -->|Call YellowLetter API| F{Order Complete?}
+    F -->|Yes| G[Status: Production Complete]
+    F -->|No| H[Status: Remains In Production]
+    G -->I{Has tracking URL?}
+    I -->|Yes - Call Accutrace API|J{Reached Complete Threshold?}
+    J --> |No but reached Out for delivery threshold| L[Status: Out for Delivery]
+    J --> |Yes - Complete threshold| M[Status: Complete]
+    J --> |No| K[Status: Remain Production Complete]
+    H --> |Nightly job| F
+    K --> |Nightly job| J
+    L --> |Nightly job| J

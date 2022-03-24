@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <p>Hi {{ rep.first_name }}, your skip trace is complete!</p>
+    <p><a href="{{application_url}}/skip-trace"><strong>Download your data here.</strong></a></p>
+    <p><strong>IMPORTANT:</strong></p>
+    <p><strong>Please note:</strong> Your skip trace results have not been scrubbed against the National DNC Registry. It is up to the end-user to determine whether scrubbing against the National DNC Registry is necessary prior to calling the phone numbers provided.</p>
+    <p><a href="https://youtu.be/J2sUqtAk-Aw"><strong>Understand your skip trace data - please watch this video to learn more.</strong></a></p>
+    <p><a href="https://youtu.be/Bn1Ne1XGeTI"><strong>Low hit rate? Your file may be formatted incorrectly. Please watch this video to learn how to correct the issue.</strong></a></p>
+    <br>
+    <p>============================</p>
+    <br>
+    <p><strong>Uploaded File:</strong> {{upload_skip_trace.uploaded_filename}}</p>
+    <p><strong>Rows Processed:</strong> {{upload_skip_trace.last_row_processed}} of {{upload_skip_trace.total_rows}}</p>
+    <p><strong>Total Hits:</strong> {{upload_skip_trace.total_hits}}</p>
+    <p><strong>Hit Percentage:</strong> {{upload_skip_trace.hit_rate}}% {% if show_low_hit_link %}<a href="https://youtu.be/Bn1Ne1XGeTI"><strong>Watch low hit rate video</strong></a>{% endif %}</p>
+    <p><strong>Phone Numbers:</strong> {{upload_skip_trace.total_phone}}</p>
+    <p><strong>Emails:</strong> {{upload_skip_trace.total_email}}</p>
+    <p><strong>Addresses:</strong> {{upload_skip_trace.total_addresses}}</p>
+    <p><strong>Existing matches in your database:</strong> {{upload_skip_trace.total_existing_matches}} (you will not be charged for this data)</p>
+    <p><strong>Existing match savings:</strong> {{existing_match_savings}}</p>
+    <p><strong>Total Litigators:</strong> {{total_litigators}}</p>
+    <p><strong>Total Cost:</strong> ${{calculated_amount}} (final receipt will be sent in separate email)</p>
+    <br>
+    </body>
+</html>

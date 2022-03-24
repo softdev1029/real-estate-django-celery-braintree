@@ -1,0 +1,291 @@
+﻿Test Scenario,Test Case,Test Case Description,Expected Result
+Prop Stack,"Owner Verified Status is not updated when setting a prospect status to ""is Qualified""",User can add Is Qualified Status to the required prospects.,User should be able to add Is Qualified Status to the required prospects.
+,"Owner Verified Status is not updated when setting a prospect status to ""is Qualified""",User to check Is Verified is true.,User should be able to check Is Verified is true.
+,"Owner Verified Status is not updated when setting a prospect status to ""is Qualified""","Owner Verified Status is changing to ""verified""","Owner Verified Status should be changed to ""verified"""
+,Update bulk actions with polling,User can see progress toast for adding tags to properties.,Usershould be able to see progress toast for adding tags to properties.
+,Update bulk actions with polling,User can see success toast for adding tags to properties.,User should be able to see success toast for adding tags to properties.
+,Update bulk actions with polling,User can see refresh button after tags are added to properties successfully.,User should be able to see refresh button after tags are added to properties successfully.
+,Update bulk actions with polling,User can filter the prospects by tags.,User should be able to filter the prospects by tags.
+,Update bulk actions with polling,Property tags count is updating for properties.,Property tags count should be updated for properties.
+,Update bulk actions with polling,User can see progress toast for removing tags from properties.,User should be able to see progress toast for removing tags from properties.
+,Update bulk actions with polling,User can see success toast for removing tags from properties.,User should be able to see success toast for removing tags from properties.
+,Update bulk actions with polling,User can see success toast for archiving properties.,User should be able to see success toast for archiving properties.
+,Update bulk actions with polling,User can see success toast for unarchive properties.,User should be able to see success toast for unarchive properties.
+,Update bulk actions with polling,User can see progress toast for adding tags to prospects.,User should be able to see progress toast for adding tags to prospects.
+,Update bulk actions with polling,Property tags count is updating for prospects.,Property tags count should be updated for prospects.
+,Update bulk actions with polling,User can see success toast for adding tags to prospects.,User should be able to see success toast for adding tags to prospects.
+,Update bulk actions with polling,User can see refresh button after tags are added to prospects successfully.,User should be able to see refresh button after tags are added to prospects successfully.
+,Update bulk actions with polling,User can see progress toast for removing tags from prospects.,User should be able to see progress toast for removing tags from prospects.
+,Update bulk actions with polling,User can see success toast for removing tags from prospects.,User should be able to see success toast for removing tags from prospects.
+,Update bulk actions with polling,User can see success toast for archiving prospects.,User should be able to see success toast for archiving prospects.
+,Update bulk actions with polling,User can see success toast for archiving prosepects.,User should be able to see success toast for archiving prosepects.
+,Update bulk actions with polling,User can see archived properties,User should be able to see archived properties
+,Update bulk actions with polling,User can see archived prospects,User should be able to see archived prospects
+,Update bulk actions with polling,User can not see archived property in archived properties lists.,User should be able to not see archived property in archived properties lists.
+,Update bulk actions with polling,User can not see archived prospect in archived prospects lists.,User should not see archived prospect in archived prospects lists.
+,Expected prospects not returning,Include property tags is working for bankruptcy,Include property tags is working for bankruptcy
+,Skip trace properties,User have the option to skip trace the selected records,User should have the option to skip trace the selected records
+,Skip trace properties,model is displaying.,model should display.
+,Skip trace properties,model contains - Confirming price estimate details and database suppression option.,model contains - Confirming price estimate details and database suppression option.
+,Skip trace properties,Phone number column is displaying in PS.,Phone number column should display in PS.
+,Skip trace properties,Spinner is loading in number column.,Spinner should  load in number column.
+,Skip trace properties,"Skip trace processing with ""Property Stacker Upload [Date & Time]"" is displaying in skip trace tab.","Skip trace processing with ""Property Stacker Upload [Date & Time]"" should be displaying in skip trace tab."
+,Skip trace properties,Skip trace is displaying green colour right mark once it completed.,Skip trace should be displaying green colour right mark once it completed.
+,Skip trace properties,Skip trace is displaying green colour right mark once it completed.,Skip trace should be displaying green colour right mark once it completed.
+,Skip trace properties,User can download the skip trace file.,User should be able to download the skip trace file.
+,Skip trace properties,User can able to push skip trace to campaign.,User should be able to able to push skip trace to campaign.
+,Skip trace properties,Data is appended in property stacker record.,Data should be appended in property stacker record.
+,Skip trace properties,To verify junior staff is getting permission restriction message for skip trace.,Junior staff should get permission restriction message for skip trace.
+,Opted Out > No doesn't return data,Yes/No toggle is displaying on click on Opted Out option from Property Stacker,Yes/No toggle should display on click on Opted Out option from Property Stacker
+,Opted Out > No doesn't return data,Opted Out properties and Prospects are getting displayed when the toggle is selected as Yes and apply filter.,Opted Out properties and Prospects should display  when the toggle is selected as Yes and apply filter.
+,Opted Out > No doesn't return data,List of properties and prospects count is displaying when Yes/No toggle from Opted Out option is clicked as No.,List of properties and prospects count should display when Yes/No toggle from Opted Out option is clicked as No.
+,Skip Trace > No not returning properties w/o numbers,User is able to upload skip trace without phone number from import tab of property stacker,User should be able to  upload skip trace without phone number from import tab of property stacker
+,Skip Trace > No not returning properties w/o numbers,Upload status is getting displayed in import tab with in file name after successful upload.,Upload status  should  get displayed in import tab with in file name after successful upload.
+,Skip Trace > No not returning properties w/o numbers,Properties are displaying on click on skip Traced toggle as yes checkbox from Filter section.,Properties should  display on click on skip Traced toggle as yes checkbox from Filter section.
+,Skip Trace > No not returning properties w/o numbers,Skip trace properties are displaying on click on skip Traced toggle as No checkbox from Filter section.,Skip trace properties should be able to display on click on skip Traced toggle as No checkbox from Filter section.
+,A user can bulk update more than 200 records,User is able to select more than 200 records click on any bulk actions on the Property Stacker from properties list,User should be able to select more than 200 records click on any bulk actions on the Property Stacker from properties list
+,A user can bulk update more than 200 records,User is able to select more than 200 records click on any bulk actions on the Property Stacker from prospect list,User should be able to select more than 200 records click on any bulk actions on the Property Stacker from prospect list
+,A user can bulk update more than 200 records,Rows are getting selected on click on 'Select All' options from Properties and Prospects,Rows should  get selected on click on 'Select All' options from Properties and Prospects
+,A user can bulk update more than 200 records,Rows are getting selected when does any bulk action from Properties and Prospects list page,Rows should get selected when does any bulk action from Properties and Prospects list page
+,Click on record w/o prospect > property info model,User is able to click on a property that has no prospect records,User should be able to click on a property that has no prospect records
+,Click on record w/o prospect > property info model,Property info model is getting displayed on click on Property without prospects,Property info model should get displayed on click on Property without prospects
+,Click on record w/o prospect > property info model,Informations are getting displayed in Property info pop model,Informations should  get displayed in Property info pop model
+,Update number of property Tag,User should be able to Add tags for the imported properties on click on Edit tags,User should be able to Add tags for the imported properties on click on Edit tags
+,Update number of property Tag,User should be able to Add more than 1 tags for the imported properties on click on Edit tags,User should be able to Add more than 1 tags for the imported properties on click on Edit tags
+,Update number of property Tag,User should be able to remove the added tags for the imported properties on click on Edit tags,User should be able to remove the added tags for the imported properties on click on Edit tags
+,Update number of property Tag,"User should be able to see toast message ""upload property tags successfully updated "" when add or remove tags from the uploaded properties","User should be able to see toast message ""upload property tags successfully updated "" when add or remove tags from the uploaded properties"
+,Update number of property Tag,User should be able to see the updated number of property tags when edit by adding or removing the tags.,User should be able to see the updated number of property tags when edit by adding or removing the tags.
+,Sort Property tags,User should be able to sort the list by # of property tags,User should be able to sort the list by # of property tags
+,Import file,User can import a file with no tags added,User should be able to import a file with no tags added
+,Import file,User can import file with tags and existing records,User should be able to import file with tags and existing records
+,Import file,User can add property tags to a completed upload in filtering tab,User  should be able to add property tags to a completed upload in filtering tab
+,Import file,User is able remove tags from completed upload filtering Tab,User should be able to able remove tags from completed upload filtering Tab
+,Search,User able to search prospect and properties by name and phone,User should be able to search prospect and properties by name and phone
+,Search,User able to search prospect and properties by name and street Address,Usershould be able to search prospect and properties by name and street Address
+,Search,User able to search prospect and properties by name and City,User should be able to search prospect and properties by name and City
+,Search,User able to search prospect and properties by phone and Street Address,User should be able to search prospect and properties by phone and Street Address
+,Search,User able to search prospect and properties by phone and City,User should be able to search prospect and properties by phone and City
+,Search,User able to search prospect and properties by street address and City,User should be able to search prospect and properties by street address and City
+,Search,User able to search on enter from keyboard with valid data,User should be able to search on enter from keyboard with valid data
+,Filter,User able filter the prospect list by last sold date,User should be able to filter the prospect list by last sold date
+,Filter,User able filter the prospect list by Property tags,User should be able to filter the prospect list by Property tags
+,Filter,User able filter the prospect list by excluded property tags,User should be able to filter the prospect list by excluded property tags
+,Filter,User able filter the prospect list by excluded prospect tags,User should be able to filter the prospect list by excluded prospect tags
+,Filter,User able filter the prospect list by Lead stages,User should be able to filter the prospect list by Lead stages
+,Filter,User able filter the prospect list by owner status,User should be able to filter the prospect list by owner status
+,Filter,User able filter the prospect list by using additional filters,User should be able to filter the prospect list by using additional filters
+,Advnaced Filter,User can see a link to Advanced Filters,User should be able to see a link to Advanced Filters
+,Advnaced Filter,User can see Advance filter modal.,User should be able to see Advance filter modal.
+,Advnaced Filter,"User can see see COLLAPSABLE sections for: Saved filters, distress indicators, property tags, prospect status, lead stage, assigned agent, dates, and additional filters","User should be able to see see COLLAPSABLE sections for: Saved filters, distress indicators, property tags, prospect status, lead stage, assigned agent, dates, and additional filters"
+,Advnaced Filter,"User is able to Reset, Save Filter, Apply","User should be able to Reset, Save Filter, Apply"
+,Advnaced Filter,User can revert to unselected,User should be able to revert to unselected
+,Advnaced Filter,User can save the filter.,User should be able to save the filter.
+,Advnaced Filter,User is able to perform Advance filter.,User should be able to perform Advance filter.
+,Hover on Campaigns # to see Campaigns name,User can see popover with the campaign names that they belong to (SMS and DM),User should be able to see popover with the campaign names that they belong to (SMS and DM)
+,Add existing filters to Advanced Filters Modal,"User can filter by below mentioned 
+Owner Status
+Pushed to SMS campaign
+Pushed to DM campaign
+Skip Traced
+Opt Out
+Lead Stage
+Distress Indicator
+Last Sold
+Reminder","User should be able to filter by below mentioned 
+Owner Status
+Pushed to SMS campaign
+Pushed to DM campaign
+Skip Traced
+Opt Out
+Lead Stage
+Distress Indicator
+Last Sold
+Reminder"
+,Save New Filter,User can see Save Filter modal,User should be able to see Save Filter modal
+,Save New Filter,User can create new filter,User should be able to create new filter
+,Save New Filter,User can update existing filters,User should be able to update existing filters
+,Save New Filter,"User is able to Close, Save and Cancel.","User should be able to Close, Save and Cancel."
+,Save New Filter,User can see an overview of all the selections,User should be able to see an overview of all the selections
+,Save New Filter,User not able to edit in overview of the selections,User should not be able to edit in overview of the selections
+,Show advanced filter in use,User can see number of advance filter selected.,User should be able to see number of advance filter selected.
+,Show advanced filter in use,User can see red dot when advances filter is applied.,User should be able to see red dot when advances filter is applied.
+,Update Saved Filter,"User can see ""update"" button","User should be able to see ""update"" button"
+,Update Saved Filter,User can see save confirmation modal,User should be able to see save confirmation modal
+,Update Saved Filter,"User can perform option to ""x"" the modal, Cancel, or Confirm to override","User should be able to perform option to ""x"" the modal, Cancel, or Confirm to override"
+,Update Saved Filter,User can cancel the save confirmation modal.,User should be able to cancel the save confirmation modal.
+,Update Saved Filter,User can see success modal for updating saved modal.,User should be able to see success modal for updating saved modal.
+,Select properties and prospects.,User able to edit property tag,User should be able to edit property tag
+,Select properties and prospects.,User export single property export as a CSV,User should be able to export single property export as a CSV
+,Select properties and prospects.,User is able to view property info model,User should be able to view property info model
+,Select properties and prospects.,User is able to access prospect details from model,User should be able to access prospect details from model
+,Take Action,User is able to archive,Usershould be able to archive
+,Take Action,User can Unarchive single property,User should be able to Unarchive single property
+,Take Action,User is able to push to existing campaign,User should be able to push to existing campaign
+,Take Action,User is able to push to new campaign,User should be able to push to new campaign
+,Take Action,User is able to push to existing campaign without entering mandatory fields in push to campaign page,User should be able to push to existing campaign without entering mandatory fields in push to campaign page
+,Take Action,User user is able to add tags for selected property,User should be able to add tags for selected property
+,Take Action,User is able to push to new campaign by selecting multiple properties,User should be able to push to new campaign by selecting multiple properties
+,Take Action,User is able to add tags for selected multiple properties at a time,User should be able to add tags for selected multiple properties at a time
+,Take Action,User is able to remove tags for selected properties,User should be able to remove tags for selected properties
+,Take Action,User is able to remove tags for multiple selected properties,Usershould be able to remove tags for multiple selected properties
+,Take Action,User is able to export as CSV for multiple selected property,User should be able to export as CSV for multiple selected property
+,Take Action,User is able to archive/unarchive multiple records in properties tab,User should be able to archive/unarchive multiple records in properties tab
+,Remove records from PropStack,User can see the option to remove records in take action drop down,User should be able to see the option to remove records in take action drop down
+,Remove records from PropStack,User can see the option to remove record in ellipses,User should be able to see the option to remove record in ellipses
+,Remove records from PropStack,User can see the warning modal when choose to remove,User should be able to see the warning modal when choose to remove
+,Remove records from PropStack,"User can see the warning modal displays two buttons ""Yes, I'm sure"" or ""No, Go back."": 
+""Are you sure? Removing the selected records will also remove all associated records from your PropStack. This action may not be reversed.""","User should be able to see the warning modal displays two buttons ""Yes, I'm sure"" or ""No, Go back."": 
+""Are you sure? Removing the selected records will also remove all associated records from your PropStack. This action may not be reversed."""
+,Remove records from PropStack,User can cancel the remove records waning modal.,User should be able to cancel the remove records waning modal.
+,Remove records from PropStack,User can remove records from prop stack.,User should be able to remove records from prop stack.
+,Remove records from PropStack,"User can see toast letting user know ""Due to the size of this request, it may take a few moments to complete. We'll update you once done.""","User should be able to see toast letting user know ""Due to the size of this request, it may take a few moments to complete. We'll update you once done."""
+,Remove records from PropStack,User can see success toast letting user know how many records are removed,User should be able to see success toast letting user know how many records are removed
+,Update list record belong to,User can see Add to List option in ellipses,User should be able to see Add to List option in ellipses
+,Update list record belong to,User can see Edit/Add to List modal,User should be able to see Edit/Add to List modal
+,Update list record belong to,User can add to existing lists.,User should be able to add to existing lists.
+,Update list record belong to,User can create new lists.,User should be able to create new lists.
+,Update list record belong to,User can add records to lists,User should be able to add records to lists
+,Note,User is able to delete existing notes from prospect,User should be able to delete existing notes from prospect
+,Note,User is able to see confirmation model before deleting notes.,User should be able to see confirmation model before deleting notes.
+,Note,Note is not deleted from prospect when user click on cancel.,Note should not be able to deleted from prospect when user click on cancel.
+,Note,Note is deleted from prospect when user click on confirm.,Note should be able to deleted from prospect when user click on confirm.
+,"Remove Street View image on prospect page, replace with link to property info modal",User can see link to the property info modal,User should be able to see link to the property info modal
+,"Remove Street View image on prospect page, replace with link to property info modal",User can see property info modal over the page was on,User should be able to see property info modal over the page was on
+,"Remove Street View image on prospect page, replace with link to property info modal",User won't see the street view image nor the property info link in prospect details tab on mobile,User should not be able to see the street view image nor the property info link in prospect details tab on mobile
+,Filter by reminder,"User can filter the prospects by ""Reminder"" with yes/no toggle","User should be able to filter the prospects by ""Reminder"" with yes/no toggle"
+,Filter by reminder,User can filter the prospects by records who have a reminder set,User should be able to filter the prospects by records who have a reminder set
+,Filter by reminder,User can filter the prospects by records who don't have a reminder set,User should be able to filter the prospects by records who don't have a reminder set
+,Link property address to pull up property details modal,User can see property details modal pop out,User should be able to see property details modal pop out
+,"Distress Indicator filter range numbers should be cleared after a user clicks ""Clear""",User can clear distress indicator filter range number.,User should be able to clear distress indicator filter range number.
+,"Only allow ""Apply"" button to be selected if filters have been changed",User should be able to view Apply button as disabled when no values are selected.,User should be able to view Apply button as disabled when no values are selected.
+,"Only allow ""Apply"" button to be selected if filters have been changed",User should be able to view Apply button as enabled when values are selected.,User should be able to view Apply button as enabled when values are selected.
+,"Only allow ""Apply"" button to be selected if filters have been changed",User should be able to resize the property stacker page and display Apply button disabled,User should be able to resize the property stacker page and display Apply button disabled
+,"Only allow ""Apply"" button to be selected if filters have been changed",User should be able to view Clear button as disabled when no values are selected.,User should be able to view Clear button as disabled when no values are selected.
+,"Only allow ""Apply"" button to be selected if filters have been changed",User should be able to view Clear button as enabled when values are selected.,User should be able to view Clear button as enabled when values are selected.
+,Property Tags hover not showing on Prospect Records tab,User should be able to see Property Tags with distress icon when hover on Property Tags number,User should be able to see Property Tags with distress icon when hover on Property Tags number
+,Property Tags hover not showing on Prospect Records tab,User should be able to see the updated Property Tags with distress icon when hover on Property Tags number,User should be able to see the updated Property Tags with distress icon when hover on Property Tags number
+,Show advanced filter in use,User can view Advanced Filter link from Property stacker filter section,User should be able to view Advanced Filter link from Property stacker filter section
+,Show advanced filter in use,User can view red dot to the Advance Filter link,User should be able to view red dot to the Advance Filter link
+,Show advanced filter in use,User not able to view red dot when clear the applied filter,User should be able to able to view red dot when clear the applied filter
+,Show advanced filter in use,User able to view Advances filtering pop up on click on Advances filter popup,User should be able to view Advances filtering pop up on click on Advances filter popup
+,Filter prospects status by date added,"User can see below drop down values when click on the Date Criteria Drop Down from prospects status section
+""tag added prior to""
+""tag added between""
+""tag added after""","User should be able to see below drop down values when click on the Date Criteria Drop Down from prospects status section
+""tag added prior to""
+""tag added between""
+""tag added after"""
+,Filter prospects status by date added,"User can see below drop down values when select 
+bankruptcy,pre-foreclosure,lien,judgement from prospects status section
+""tag added prior to""
+""tag added between""
+""tag added after""","User should be able to see below drop down values when select 
+bankruptcy,pre-foreclosure,lien,judgement from prospects status section
+""tag added prior to""
+""tag added between""
+""tag added after"""
+,Filter prospects status by date added,"User can select the ""tag added"" options when selected any tags other than bankruptcy,pre-foreclosure,lien,judgement from prospects status section","User should be able to select the ""tag added"" options when selected any tags other than bankruptcy,pre-foreclosure,lien,judgement from prospects status section"
+,Filter prospects status by date added,User can select one date in the Date To component when select either the declared prior/tag added prior to from prospects status section,User should be able to select one date in the Date To component when select either the declared prior/tag added prior to from prospects status section
+,Filter prospects status by date added,User can select one date in the Date From component when select either the declared after/tag added after to options from prospects status section,User should be able to select one date in the Date From component when select either the declared after/tag added after to options from prospects status section
+,Filter prospects status by date added,User can select a date in both the date from and date to options when select either the declared between or tag added between option from prospects status section,User should be able to select a date in both the date from and date to options when select either the declared between or tag added between option from prospects status section
+,Filter prospects status by date added,User not be able to set any date criteria when not selected a Status,User should not be able to set any date criteria when not selected a Status
+,Filter prospects status by date added,User can view the results with filter to records that have at least one prospect/property Status that has a TIME STAMP that meets the date criteria when elected both a tag and date declared criteria,User should be able to view the results with filter to records that have at least one prospect/property Status that has a TIME STAMP that meets the date criteria when elected both a tag and date declared criteria
+,Filter prospects status by date added,User can view the results with filter to records that have at least one prospect/property had that STATUS APPLIED to the record in Sherpa that meets the date criteria when both a tag and a date tag was added criteria and click on Apply button,User should be able to view the results with filter to records that have at least one prospect/property had that STATUS APPLIED to the record in Sherpa that meets the date criteria when both a tag and a date tag was added criteria and click on Apply button
+,Filter property tags by date added,"User can see below drop down values when click on the Date Criteria Drop Down from Property Tags section
+""tag added prior to""
+""tag added between""
+""tag added after""","User should be able to see below drop down values when click on the Date Criteria Drop Down from Property Tags section
+""tag added prior to""
+""tag added between""
+""tag added after"""
+,Filter property tags by date added,"User can see below drop down values when select 
+bankruptcy,pre-foreclosure,lien,judgement from Property Tags section
+""tag added prior to""
+""tag added between""
+""tag added after""","User should be able to see below drop down values when select 
+bankruptcy,pre-foreclosure,lien,judgement from Property Tags section
+""tag added prior to""
+""tag added between""
+""tag added after"""
+,Filter property tags by date added,"User can select the ""tag added"" options when selected any tags other than bankruptcy,pre-foreclosure,lien,judgement from Property Tags section","User should be able to select the ""tag added"" options when selected any tags other than bankruptcy,pre-foreclosure,lien,judgement from Property Tags section"
+,Filter property tags by date added,User can select one date in the Date To component when select either the declared prior/tag added prior to from Property Tags section,User should be able to select one date in the Date To component when select either the declared prior/tag added prior to from Property Tags section
+,Filter property tags by date added,User can select one date in the Date From component when select either the declared after/tag added after to options from Property Tags section,User should be able to select one date in the Date From component when select either the declared after/tag added after to options from Property Tags section
+,Filter property tags by date added,User can select a date in both the date from and date to options when select either the declared between or tag added between option from Property Tags section,User should be able to select a date in both the date from and date to options when select either the declared between or tag added between option from Property Tags section
+,Filter property tags by date added,User not be able to set any date criteria when not selected a tag,User should not be able to set any date criteria when not selected a tag
+,Filter property tags by date added,User can view the results with filter to records that have at least one prospect/property tag that has a TIME STAMP that meets the date criteria when elected both a tag and date declared criteria,User should be able to view the results with filter to records that have at least one prospect/property tag that has a TIME STAMP that meets the date criteria when elected both a tag and date declared criteria
+,Filter property tags by date added,User can view the results with filter to records that have at least one prospect/property tag that had that TAG APPLIED to the record in Sherpa that meets the date criteria when both a tag and a date tag was added criteria and click on Apply button,User should be able to view the results with filter to records that have at least one prospect/property tag that had that TAG APPLIED to the record in Sherpa that meets the date criteria when both a tag and a date tag was added criteria and click on Apply button
+,Filter by saved filters,User can filter by saved filters from Filters sidebar,User should be able to filter by saved filters from Filters sidebar
+,Filter by saved filters,User can view names of all the filters previously saved on click on Saved Filter drop down,User should be able to view names of all the filters previously saved on click on Saved Filter drop down
+,Filter by saved filters,User can view all the data override the selections when apply saved filter with selections already in filters,User should be able to view all the data override the selections when apply saved filter with selections already in filters
+,Filter by saved filters,User can modify the filters from the saved settings when select a saved filter,User should be able to modify the filters from the saved settings when select a saved filter
+,Filter by zip,User can see the option to filter by ZIP on click on additional filters,User should be able to see the option to filter by ZIP on click on additional filters
+,Filter by zip,User can see the results with filtered to properties/prospects with the zip code entered,User should be able to see the results with filtered to properties/prospects with the zip code entered
+,Filter by owner status,User can see the option to filter by owner status on click on additional filters,User should be able to see the option to filter by owner status on click on additional filters
+,Filter by owner status,"User can see the results with filtered to properties/prospects with the owner status as ""Verified Owner""","User should be able to see the results with filtered to properties/prospects with the owner status as ""Verified Owner"""
+,Filter by owner status,"User can see the results with filtered to properties/prospects with the owner status as ""Non Owner""","User should be able to see the results with filtered to properties/prospects with the owner status as ""Non Owner"""
+,Filter by owner status,"User can see the results with filtered to properties/prospects with the owner status as ""Owner Not Found""","User should be able to see the results with filtered to properties/prospects with the owner status as ""Owner Not Found"""
+,Filter by pushed to SMS,User can see the option to filter by Pushed to SMS on click on additional filters,User should be able to see the option to filter by Pushed to SMS on click on additional filters
+,Filter by pushed to SMS,"User can see the results with filtered to properties/prospects with the Pushed to SMS as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Pushed to SMS as ""Yes"""
+,Filter by pushed to SMS,"User can see the results with filtered to properties/prospects with the Pushed to SMS as ""No""","User should be able to see the results with filtered to properties/prospects with the Pushed to SMS as ""No"""
+,Filter by pushed to Direct mail,User can see the option to filter by Pushed to Direct Mail on click on additional filters,User should be able to see the option to filter by Pushed to Direct Mail on click on additional filters
+,Filter by pushed to Direct mail,"User can see the results with filtered to properties/prospects with the Pushed to Direct Mail as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Pushed to Direct Mail as ""Yes"""
+,Filter by pushed to Direct mail,"User can see the results with filtered to properties/prospects with the Pushed to Direct Mail as ""No""","User should be able to see the results with filtered to properties/prospects with the Pushed to Direct Mail as ""No"""
+,Filter by Skip Traced,User can see the option to filter by Skip Traced on click on additional filters,User should be able to see the option to filter by Skip Traced on click on additional filters
+,Filter by Skip Traced,"User can see the results with filtered to properties/prospects with the Skip Traced as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Skip Traced as ""Yes"""
+,Filter by Skip Traced,"User can see the results with filtered to properties/prospects with the Skip Traced as ""No""","User should be able to see the results with filtered to properties/prospects with the Skip Traced as ""No"""
+,Filter by Opt Out,User can see the option to filter by Opt Out on click on additional filters,User should be able to see the option to filter by Opt Out on click on additional filters
+,Filter by Opt Out,"User can see the results with filtered to properties/prospects with the Opt Out as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Opt Out as ""Yes"""
+,Filter by Opt Out,"User can see the results with filtered to properties/prospects with the Opt Out as ""No""","User should be able to see the results with filtered to properties/prospects with the Opt Out as ""No"""
+,Filter by Recently Vacant,User can see the option to filter by Recently Vacant on click on additional filters,User should be able to see the option to filter by Recently Vacant on click on additional filters
+,Filter by Recently Vacant,"User can see the results with filtered to properties/prospects with the Recently Vacant as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Recently Vacant as ""Yes"""
+,Filter by Recently Vacant,"User can see the results with filtered to properties/prospects with the Recently Vacant as ""No""","User should be able to see the results with filtered to properties/prospects with the Recently Vacant as ""No"""
+,Filter by Has Reminder,User can see the option to filter by Has Reminder on click on additional filters,User should be able to see the option to filter by Has Reminder on click on additional filters
+,Filter by Has Reminder,"User can see the results with filtered to properties/prospects with the Has Reminder as ""Yes""","User should be able to see the results with filtered to properties/prospects with the Has Reminder as ""Yes"""
+,Filter by Has Reminder,"User can see the results with filtered to properties/prospects with the Has Reminder as ""No""","User should be able to see the results with filtered to properties/prospects with the Has Reminder as ""No"""
+,Filter by skip traced date,"User can filter by Skip Trace Date from advanced filtering modal from ""dates"" section","User should be able to filter by Skip Trace Date from advanced filtering modal from ""dates"" section"
+,Filter by skip traced date,"User can see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by Skip Trace Date","User should be able to see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by Skip Trace Date"
+,Filter by skip traced date,User can select a single date when select the prior to option,User should be able to select a single date when select the prior to option
+,Filter by skip traced date,User can select a single date when select the prior to option after set a single date selected the prior to option and click Apply,User should be able to select a single date when select the prior to option after set a single date selected the prior to option and click Apply
+,Filter by skip traced date,User can select a starting and ending date from selected the between option,User should be able to select a starting and ending date from selected the between option
+,Filter by skip traced date,User can filter to records skip traced between those dates with entered by start and end date,User should be able to filter to records skip traced between those dates with entered by start and end date
+,Filter by skip traced date,User can select one date when selected the after option,User should be able to select one date when selected the after option
+,Filter by skip traced date,"User can filter only to the records that were skip traced after that date when entered my ""After"" date","User should be able to filter only to the records that were skip traced after that date when entered my ""After"" date"
+,Filter by skip traced date,"User is not included in results when filtering by skip trace date when record has not been skip traced,","User should not include in results when filtering by skip trace date when record has not been skip traced,"
+,Filter by first import date,"User can filter by import Date from advanced filtering modal from ""dates"" section","User should be able to filter by import Date from advanced filtering modal from ""dates"" section"
+,Filter by first import date,"User can see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by Import Date","User should be able to see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by Import Date"
+,Filter by first import date,"User can select a single date after selecting filter by ""prior to"" or ""after""","User should be able to select a single date after selecting filter by ""prior to"" or ""after"""
+,Filter by first import date,"User can select two dates after selecting filter by ""between""","User should be able to select two dates after selecting filter by ""between"""
+,Filter by first import date,User can see results will filter only to the records imported for the FIRST time prior to the date selected,User should be able to see results will filter only to the records imported for the FIRST time prior to the date selected
+,Filter by first import date,User can see results will filter only to the records imported for the FIRST time between to the dates selected,User should be able to see results will filter only to the records imported for the FIRST time between to the dates selected
+,Filter by first import date,User can see results will filter only to the records imported for the FIRST time after the date selected,User should be able to see results will filter only to the records imported for the FIRST time after the date selected
+,Filter by last import date,"User can filter by last import Date from advanced filtering modal from ""dates"" section","User should be able to filter by last import Date from advanced filtering modal from ""dates"" section"
+,Filter by last import date,"User can see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last Import Date","User should be able to see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last Import Date"
+,Filter by last import date,"User can select a single date after selecting filter by ""prior to"" or ""after""","User should be able to select a single date after selecting filter by ""prior to"" or ""after"""
+,Filter by last import date,"User can select two dates after selecting filter by ""between""","User should be able to select two dates after selecting filter by ""between"""
+,Filter by last import date,User can see results will filter only to the records Last Imported prior to the date selected,User should be able to see results will filter only to the records Last Imported prior to the date selected
+,Filter by last import date,User can see results will filter only to the records Last Imported between to the dates selected,User should be able to see results will filter only to the records Last Imported between to the dates selected
+,Filter by last import date,User can see results will filter only to the records Last Imported after the date selected,User should be able to see results will filter only to the records Last Imported after the date selected
+,Filter by last outbound date,"User can filter by last outbound Date from advanced filtering modal from ""dates"" section","User should be able to filter by last outbound Date from advanced filtering modal from ""dates"" section"
+,Filter by last outbound date,"User can see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last out bound Date","User should be able to see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last out bound Date"
+,Filter by last outbound date,"User can select a single date after selecting filter by ""prior to"" or ""after""","User should be able to select a single date after selecting filter by ""prior to"" or ""after"""
+,Filter by last outbound date,"User can select two dates after selecting filter by ""between""","User should be able to select two dates after selecting filter by ""between"""
+,Filter by last outbound date,User can see results will filter only to the records last outbound prior to the date selected,User should be able to see results will filter only to the records last outbound prior to the date selected
+,Filter by last outbound date,User can see results will filter only to the records last outbound between to the dates selected,User should be able to see results will filter only to the records last outbound between to the dates selected
+,Filter by last outbound date,User can see results will filter only to the records last outbound after the date selected,User should be able to see results will filter only to the records last outbound after the date selected
+,Filter by last in bound date,"User can filter by last Inbound Date from advanced filtering modal from ""dates"" section","User should be able to filter by last Inbound Date from advanced filtering modal from ""dates"" section"
+,Filter by last in bound date,"User can see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last inbound Date","User should be able to see a calendar component that allows me to filter prior to, between, or after specific dates when click to filter by last inbound Date"
+,Filter by last in bound date,"User can select a single date after selecting filter by ""prior to"" or ""after""","User should be able to select a single date after selecting filter by ""prior to"" or ""after"""
+,Filter by last in bound date,"User can select two dates after selecting filter by ""between""","User should be able to select two dates after selecting filter by ""between"""
+,Filter by last in bound date,User can see results will filter only to the records last in bound prior to the date selected,User should be able to see results will filter only to the records last in bound prior to the date selected
+,Filter by last in bound date,User can see results will filter only to the records last in bound between to the dates selected,User should be able to see results will filter only to the records last in bound between to the dates selected
+,Filter by last in bound date,User can see results will filter only to the records last in bound after the date selected,User should be able to see results will filter only to the records last in bound after the date selected
+,Filter by last sold date,"User can filter by last sold Date from advanced filtering modal from ""dates"" section","User should be able to filter by last sold Date from advanced filtering modal from ""dates"" section"
+,Filter by last sold date,"User can see a calendar component that allows me to filter prior to, between specific dates when click to filter by last sold Date","User should be able to see a calendar component that allows me to filter prior to, between specific dates when click to filter by last sold Date"
+,Filter by last sold date,"User can select a single date after selecting filter by ""prior to""","User should be able to select a single date after selecting filter by ""prior to"""
+,Filter by last sold date,"User can select two dates after selecting filter by ""between""","User should be able to select two dates after selecting filter by ""between"""
+,Filter by last sold date,User can see results will filter only to the records last sold prior to the date selected,User should be able to see results will filter only to the records last sold prior to the date selected
+,Filter by last sold date,User can see results will filter only to the records last sold date between to the dates selected,User should be able to see results will filter only to the records last sold date between to the dates selected
+,Reset Filters,user can reset the filters selected in advanced filter,user should be able to reset the filters selected in advanced filter
+,Add more data to prospect option pop out,"User can see Prospect, Number, Campaigns, Prospect Status, Property Tags, Verified, Lead Stage, Last Contact date in prospect option modal.","User should be able to see Prospect, Number, Campaigns, Prospect Status, Property Tags, Verified, Lead Stage, Last Contact date in prospect option modal."
+,Add more data to prospect option pop out,User can see which campaigns prospect is in.,User should be able to see which campaigns prospect is in.
+,Add more data to prospect option pop out,User can see prospect status,User should be able to see prospect status

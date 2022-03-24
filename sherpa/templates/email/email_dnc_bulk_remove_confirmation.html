@@ -1,0 +1,11 @@
+{% extends "email/base.html" %}
+{# Sends an email to the user who initiated a DNC Removal email #}
+
+{% block title %}
+Phone numbers removed from DNC list
+{% endblock %}
+
+{% block content %}
+<p>Hi {{ first_name }}, your bulk remove from your DNC list is complete!</p>
+<p>There were <strong>{{numbers_removed}}</strong> total numbers removed from your DNC list, and the associated prospects had their DNC removed as well.</p>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <p>Your litigator scrub and address validation has successfully started for the <strong>{{ upload_litigator_check.uploaded_filename }}</strong> file! To track the status click the link below.</p><br />
+
+        {{site.domain}}{% url 'check_litigator_status' upload_litigator_check.token %}
+
+		<p><strong>Thanks!</strong></p>
+		<p>- LeadSherpa.com</p>
+
+    </body>
+</html>

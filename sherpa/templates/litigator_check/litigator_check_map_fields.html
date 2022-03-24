@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link href="/static/css/plugins/dropzone/basic.css" rel="stylesheet" xmlns="http://www.w3.org/1999/html"/>
+<link href="/static/css/plugins/dropzone/dropzone.css" rel="stylesheet" />
+
+<style>
+    .well {
+        min-height: 20px;
+        padding: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        background-color: #ffffff;
+        border-top: 1px solid #e3e3e3;
+        border-bottom: 0px solid #e3e3e3;
+        border-radius: 4px;
+    }
+
+    .remove-padding-left {
+        padding-left: 0;
+    }
+
+    .add-margin-bottom {
+        margin-bottom: 20px;
+    }
+
+    .label2 {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+{% endblock %}
+
+
+{% block extra_script %}
+<script>
+    $(function() {
+        var fields = $('select').not('#upload_has_header');
+        fields.on('change', function(ev) {
+           fields.find('option').removeAttr('disabled');
+           var phone_count = 0;
+           fields.each(function(i, e) {
+               var val = $(e).val();
+               if (val == 'phone'){
+                   phone_count = phone_count + 1
+               }
+               if (!val || val == 'phone') return;
+               fields.not($(e)).find('option[value="'+val+'"]').attr({disabled: 'disabled'});
+           });
+
+           if (phone_count >= 7){
+               console.log('Disable Phone select');
+               fields.each(function(i, e) {
+                   var val = $(e).val();
+                   if (val == 'phone'){
+                       fields.not($(e)).find('option[value="'+val+'"]').attr({disabled: 'disabled'});
+                   }
+               });
+           }
+
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+        $('#next').click(function(e) {
+            console.log('Next clicked!')
+            $(this).hide();
+            $('#next-btn-animated').show();
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block body_class %}gray-bg{% endblock %}
+
+{% block body %}
+    <div class="container">
+{#        <div style="margin-top: 30px;">#}
+{#            <h1><i class="fa fa-check-circle" style="color: #1ab394;"></i> Check Litigator List</h1>#}
+{##}
+{#        </div>#}
+
+        <div class="well" style="margin-top: 30px;">
+
+            <div class="row" style="margin-left: 20px;">
+                <ol class="breadcrumb" style="font-size: 16px;">
+                    <li>
+                        <a href="{% url 'litigator_check_home' %}"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'litigator_check_select_file' %}">Select File</a>
+                    </li>
+                    <li class="active">
+                        <strong>Map Fields</strong>
+                    </li>
+                    <li>
+                        <span style="color: #DDDDDD;">Start Scrub</span>
+                    </li>
+                </ol>
+            </div>
+
+
+<div class="row" style="margin-left: 30px; margin-top: 30px;">
+
+<form method="post">
+<div>
+    <div class="row">
+        <div style="border-top:0">
+            <p><h3>Does your spreadsheet have a header row?</h3></p>
+            <select id="upload_has_header" name="upload_has_header" class="form-control m-b" style="width: 100px;">
+                <option value="Yes" {% if has_header_row %}selected{% endif %}>Yes</option>
+                <option value="No" {% if not has_header_row %}selected{% endif %}>No</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="row">
+        <p><h3>Match Fields</h3></p>
+
+        <div class="row col-md-12">
+            <div class="alert alert-info alert-dismissible col-md-6" style="margin-top: 15px; margin-bottom: 15px;">
+                <strong>Special Note</strong> You can match up to 7 phone columns for this upload.
+            </div>
+        </div>
+
+        {% for upload_column_mapping in upload_column_mapping_list %}
+        <div class="col-md-12 remove-padding-left add-margin-bottom">
+            <div class="col-md-6 remove-padding-left">
+                <table class="table table-bordered">
+                  <tbody>
+                  <tr>
+                      <td><strong>COLUMN {{upload_column_mapping.column_number_not_zero_based}}</strong></td>
+                  </tr>
+                  <tr>
+                      <td>{{upload_column_mapping.row_data_1}}</td>
+                  </tr>
+                  {% if row_count >= 2 %}
+                  <tr>
+                      <td>{{upload_column_mapping.row_data_2}}</td>
+                  </tr>
+                  {% endif %}
+                  {% if row_count >= 3 %}
+                  <tr>
+                      <td>{{upload_column_mapping.row_data_3}}</td>
+                  </tr>
+                  {% endif %}
+                  </tbody>
+                </table>
+            </div>
+            <div  class="col-md-6">
+                <div class="label2">
+                    Belongs to
+                </div>
+                <select class="form-control m-b" style="width: 200px;" name="column_mapping_{{upload_column_mapping.column_number}}">
+                    <option value="">--Select--</option>
+                    <option value="" {% if upload_column_mapping.column_preselect == "skip" %}selected{% endif %}>Skip this column</option>
+                    <option value="first_name" {% if upload_column_mapping.column_preselect == "first_name" %}selected{% endif %}>First Name</option>
+                    <option value="last_name" {% if upload_column_mapping.column_preselect == "last_name" %}selected{% endif %}>Last Name</option>
+                    <option value="mailing_street" {% if upload_column_mapping.column_preselect == "mailing_street" %}selected{% endif %}>Mailing Address</option>
+                    <option value="mailing_city" {% if upload_column_mapping.column_preselect == "mailing_city" %}selected{% endif %}>Mailing City</option>
+                    <option value="mailing_state" {% if upload_column_mapping.column_preselect == "mailing_state" %}selected{% endif %}>Mailing State</option>
+                    <option value="mailing_zipcode" {% if upload_column_mapping.column_preselect == "mailing_zipcode" %}selected{% endif %}>Mailing Zip</option>
+                    <option value="street" {% if upload_column_mapping.column_preselect == "street" %}selected{% endif %}>Property Address</option>
+                    <option value="city" {% if upload_column_mapping.column_preselect == "city" %}selected{% endif %}>Property City</option>
+                    <option value="state" {% if upload_column_mapping.column_preselect == "state" %}selected{% endif %}>Property State</option>
+                    <option value="zipcode" {% if upload_column_mapping.column_preselect == "zipcode" %}selected{% endif %}>Property Zip</option>
+                    <option value="email" {% if upload_column_mapping.column_preselect == "email" %}selected{% endif %}>Email</option>
+                    <option value="custom_1" {% if upload_column_mapping.column_preselect == "custom_1" %}selected{% endif %}>Custom 1</option>
+                    <option value="custom_2" {% if upload_column_mapping.column_preselect == "custom_2" %}selected{% endif %}>Custom 2</option>
+                    <option value="custom_3" {% if upload_column_mapping.column_preselect == "custom_3" %}selected{% endif %}>Custom 3</option>
+                    <option value="phone" {% if upload_column_mapping.column_preselect == "phone" %}selected{% endif %}>Phone 1</option>
+                    <option value="phone" {% if upload_column_mapping.column_preselect == "phone" %}selected{% endif %}>Phone 2</option>
+                    <option value="phone" {% if upload_column_mapping.column_preselect == "phone" %}selected{% endif %}>Phone 3</option>
+                </select>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <div style="margin-top: 20px; margin-left: 20px;">
+                <a href="#" class="btn btn-default btn-lg" style="margin-right: 20px;"><i class="fa fa-backward"></i> Back</a>
+                <button id="next" type="submit" class="btn btn-primary btn-lg">Next&nbsp;<i class="fa fa-forward"></i></button>
+                <button id="next-btn-animated" class="btn btn-primary btn-lg" disabled="disabled"
+                        style="display: none;">mapping&nbsp;<i class="fa fa-spin fa-spinner fa-lg"></i>
+                </button>
+</div>
+
+</div>
+
+    </div>
+</div>
+{% csrf_token %}
+</form>
+
+</div>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,12 @@
+{# Base email template that can be passed the title & content to give us a standard email design. #}
+
+<html>
+  <body>
+    {% block body %}
+      <h3>
+        {% block title %}{% endblock %}
+      </h3>
+      {% block content %}{% endblock %}
+    {% endblock %}
+  </body>
+</html>

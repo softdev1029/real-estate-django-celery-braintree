@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    .login-box{
+        margin-top:100px;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block extra_script %}
+<script>
+$(function() {
+    setInterval(function() {
+        $.get('{% url "check_litigator_status" upload_litigator_check.token %}').then(function(html) {
+            $('#status').html(html);
+        });
+    }, 2000);
+});
+</script>
+{% endblock %}
+
+{% block body_class %}gray-bg{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div class="login-box">
+
+                <div id="status">
+                    {% include 'litigator_check/litigator_check_status_partial.html' %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

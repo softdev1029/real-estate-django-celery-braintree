@@ -1,0 +1,42 @@
+[
+  {
+    "model": "phone.provider",
+    "pk": "telnyx",
+    "fields": {
+        "id": "telnyx",
+        "priority": 1,
+        "managed": true,
+        "sms_market_minimum": 20,
+        "new_market_number_count": 30,
+        "messages_per_phone_per_day": 79,
+        "opt_out_language": " Reply STOP for opt-out.",
+        "excluded_carriers": ["verizon"]
+    }
+  },
+  {
+    "model": "phone.provider",
+    "pk": "twilio",
+    "fields": {
+        "id": "twilio",
+        "priority": 2,
+        "managed": false,
+        "sms_market_minimum": 20,
+        "new_market_number_count": 30,
+        "messages_per_phone_per_day": 79,
+        "opt_out_language": " reply stop to end."
+    }
+  },
+  {
+    "model": "phone.provider",
+    "pk": "inteliquent",
+    "fields": {
+        "id": "inteliquent",
+        "priority": 0,
+        "managed": true,
+        "sms_market_minimum": 5,
+        "new_market_number_count": 5,
+        "messages_per_phone_per_day": 0,
+        "opt_out_language": " reply stop to end."
+    }
+  }
+]

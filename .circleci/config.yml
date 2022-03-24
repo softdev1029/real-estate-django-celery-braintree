@@ -1,0 +1,176 @@
+# https://circleci.com/docs/2.0/reusing-config/
+version: 2.1
+orbs:
+  docker: circleci/docker@1.6.0
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build:
+          filters: &tags
+            branches: # disable default behavior
+              ignore: staging
+            tags: # ~semantic versioned final tags
+              only: /^v\d+\.\d+\.\d+$/
+      - lint:
+          filters:
+            <<: *tags
+          requires:
+            - build
+      - check_migrations:
+          filters:
+            <<: *tags
+          requires:
+            - build
+      - test:
+          filters:
+            <<: *tags
+          requires:
+            - build
+      - deploy_to_production:
+          requires: [lint, check_migrations, test]
+          filters:
+            <<: *tags
+            branches: # disable default behavior
+              ignore: /.*/
+      - deploy_to_staging:
+          filters:
+            branches:
+              only:
+                - staging
+      - deploy_to_develop:
+          requires: [lint, check_migrations, test]
+          filters:
+            branches:
+              only:
+                - develop
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - test
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout-w-cache
+      - run: docker-compose build --pull
+      - run: docker-compose push
+      - run: docker save registry.gitlab.com/leadsherpa/leadsherpa/leadsherpa-backend-dev -o leadsherpa-backend.tar
+      - persist_to_workspace:
+         root: /home/circleci/project
+         paths:
+           - leadsherpa-backend.tar
+  lint:
+    # for now, require machine to bind mount files since we only have one compose file that expects to bind mount
+    machine: true
+    steps:
+      - load-machine
+      - run: make flake
+  check_migrations:
+    machine: true
+    steps:
+      - load-machine
+      - run:
+          name: Check Migrations
+          command: make checkmigrations
+  test:
+    machine: true
+    steps:
+      - load-machine
+      - run:
+          name: Django Coverage Test
+          command: make coverage
+      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: test-results
+      - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: test-results
+          destination: tr1
+      - store_artifacts:
+          path: coverage-results
+      - store_artifacts:
+          path: htmlcov
+  push:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - load
+      - run: docker-compose build
+  deploy_to_production:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - add_ssh_keys
+      - run:
+          name: Keyscan for Fingerprints
+          command: |
+            ssh-keyscan -H 104.237.141.168 >> ~/.ssh/known_hosts
+      - run: ssh deploy@104.237.141.168 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@66.228.51.213 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.79.36.162 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.33.116.222 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.79.33.57 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@69.164.207.136 /var/www/leadsherpa/deploy.sh $CIRCLE_SHA1
+      - run: ssh deploy@192.53.162.5 /var/www/leadsherpa/deploy_telnyx.sh $CIRCLE_SHA1
+      - run: ssh deploy@192.53.162.6 /var/www/leadsherpa/deploy_telnyx.sh $CIRCLE_SHA1
+      - run: ssh deploy@192.46.218.226 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+      - run: ssh deploy@104.237.131.34 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+      - run: ssh deploy@172.104.197.191 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.56.126.192 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+      - run: ssh deploy@69.164.194.76 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.79.58.216 /var/www/leadsherpa/deploy_runner.sh $CIRCLE_SHA1
+  deploy_to_staging:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - add_ssh_keys
+      - run:
+          name: Keyscan for Fingerprint
+          command: ssh-keyscan -H 45.79.29.235 >> ~/.ssh/known_hosts
+      - run: ssh deploy@45.79.29.235 /var/www/leadsherpa-staging/deploy_staging.sh $CIRCLE_SHA1
+  deploy_to_develop:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - add_ssh_keys
+      - run:
+          name: Keyscan for Fingerprint
+          command: ssh-keyscan -H 45.33.26.96 >> ~/.ssh/known_hosts
+      - run: ssh deploy@45.79.29.235 /var/www/leadsherpa-dev/deploy_dev.sh $CIRCLE_SHA1
+      - run: ssh deploy@45.79.29.235 /var/www/leadsherpa-dev-remote/deploy_dev_remote.sh $CIRCLE_SHA1
+
+commands:
+  checkout-w-cache-machine:
+    steps:
+      - checkout
+      - attach_workspace:
+         at: /home/circleci/project
+      - run: mkdir $HOME/.docker
+      - run: echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
+  checkout-w-cache:
+    steps:
+      - checkout-w-cache-machine
+      - setup_remote_docker:
+          docker_layer_caching: true
+  load-and-pull:
+    steps:
+      - run: docker load -i leadsherpa-backend.tar || true
+      - run: docker-compose pull web || true
+  load-machine:
+    steps:
+      - checkout-w-cache-machine
+      - run: sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      - run: sudo chmod +x /usr/local/bin/docker-compose
+      - load-and-pull
+  load:
+    steps:
+      - checkout-w-cache
+      - load-and-pull

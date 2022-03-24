@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <p>Hi {{ first_name }},</p>
+    <p>{{ added_quantity }} Sherpa {% if added_quantity > 1 %}phone numbers have{% else %}phone number has{% endif %} been added to your {{ market.name }} market, of which {{ purchased_quantity }} {% if purchased_quantity > 1 %}were{% else %}was{% endif %} over the included market limit.</p>
+    {% if purchased_quantity > 0 %}
+        <p>{{ purchased_quantity }} {% if purchased_quantity > 1 %}numbers were{% else %}number was{% endif %} purchased and <strong>${{ amount }}</strong> has been charged to your card right now and <strong>${{ amount }}</strong> has been added to your monthly subscription.</p>
+    {% endif %}
+    <br>
+    <p><strong>Company:</strong> {{market.company.name}}</p>
+    <p><strong>Market:</strong> {{market.name}}</p>
+    <p><strong>Numbers Added:</strong> {{added_quantity}}</p>
+    <p><strong>Numbers Purchased:</strong> {{purchased_quantity}}</p>
+    </body>
+</html>

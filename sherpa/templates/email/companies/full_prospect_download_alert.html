@@ -1,0 +1,12 @@
+{% extends "email/base.html" %}
+{% load humanize %}
+
+{# Sent to companies as a notification that their monthly uploads will be expiring soon. #}
+
+{% block title %}
+Full prospect download alert
+{% endblock %}
+
+{% block content %}
+<p>A full prospect export has been performed by {{user_full_name}} ({{user_email}}) for company "{{company_name}}".</p>
+{% endblock %}

@@ -1,0 +1,87 @@
+version: '3'
+
+x-backend-env: &backend-env
+  AWS_ACCESS_KEY_ID:
+  AWS_SECRET_ACCESS_KEY:
+  AWS_STORAGE_BUCKET_NAME:
+  BRAINTREE_ENV:
+  BRAINTREE_PRIVATE_KEY:
+  CELERY_RESULTS_ENABLED:
+  CELERY_TASK_SOFT_TIME_LIMIT:
+  CELERY_TASK_TIME_LIMIT:
+  DEPLOY_TARGET: ${DEPLOY_TARGET:-local}
+  DJANGO_API_PROFILING_ENABLED:
+  EMAIL_HOST_PASSWORD:
+  IDI_CLIENT_SECRET:
+  MOBILE_PHONE:
+  PODIO_CLIENT_ID:
+  PODIO_CLIENT_SECRET:
+  PODIO_TEST_USERNAME:
+  PODIO_TEST_PW:
+  REDIS_URL: 'redis://redis:6379'
+  REQUEST_TIME_DELAY: ${REQUEST_TIME_DELAY:-0.5}
+  SALESFORCE_DOMAIN:
+  SALESFORCE_PASSWORD:
+  SALESFORCE_SECURITY_TOKEN:
+  TELNYX_API_KEY:
+  TELNYX_SECRET_KEY:
+  YELLOW_LETTER_TOKEN:
+  INTELIQUENT_MICROSERVICE_URL:
+
+x-backend-config: &backend-config
+  image: ${BACKEND_IMAGE:-registry.gitlab.com/leadsherpa/leadsherpa/leadsherpa-backend}-dev
+  environment:
+    <<: *backend-env
+  depends_on:
+    - db
+    - redis
+    - elasticsearch
+  user: ${CONTAINER_UID:-0}
+  volumes:
+  - .:/app
+
+services:
+  db:
+    image: postgres:10.9
+    # command: ["postgres", "-c", "log_statement=all"]
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  redis:
+    image: redis:4.0.9
+    ports:
+      - "6379:6379"
+  elasticsearch:
+    image: elasticsearch:7.9.1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+      - ./search/configs/street_synonyms.txt:/usr/share/elasticsearch/config/synonyms/street_synonyms.txt
+      - ./search/configs/stop_words.txt:/usr/share/elasticsearch/config/stop/stop_words.txt
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+  kibana:
+    image: kibana:7.8.0
+    ports:
+      - "5601:5601"
+  web:
+    <<: *backend-config
+    build: .
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    ports:
+      - "8000:8000"
+  celery:
+    <<: *backend-config
+    command: >-
+      watchmedo auto-restart --directory=./ --pattern=*.py --recursive --
+      celery worker -B -A core.celery.app -l info -Q celery,skip_trace,sms,slow,es
+      --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+volumes:
+  esdata:
+  postgres:
+  redisdata:
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME:-leadsherpa_dev}_default

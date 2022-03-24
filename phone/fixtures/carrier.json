@@ -1,0 +1,26 @@
+[
+  {
+    "model": "phone.carrier",
+    "pk": "verizon",
+    "fields": {
+      "id": "verizon",
+      "carrier_keys": ["cellco", "verizon"]
+    }
+  },
+  {
+    "model": "phone.carrier",
+    "pk": "t-mobile",
+    "fields": {
+      "id": "t-mobile",
+      "carrier_keys": ["sprint", "t-mobile"]
+    }
+  },
+  {
+    "model": "phone.carrier",
+    "pk": "att",
+    "fields": {
+      "id": "att",
+      "carrier_keys": ["att"]
+    }
+  }
+]

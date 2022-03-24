@@ -1,0 +1,26 @@
+{% load tz %}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p><strong>Sherpa Reminder</strong></p>
+
+<p><strong>Prospect:</strong> {{ prospect.name }}</p>
+
+<p><strong>Phone:</strong> {{ prospect.phone_display }}</p>
+
+<p><strong>Address:</strong> {{ prospect.address_display }}</p>
+
+<p><strong>Stage:</strong> {{ lead_stage_title }}</p>
+
+<p>
+    <strong>Reminder Date:</strong>
+    {% timezone prospect.company.timezone %}
+        {{ prospect.reminder_date_utc}}
+    {% endtimezone %}
+</p>
+
+<p><strong>Link:</strong> {{ site.domain }}/prospect/{{ prospect.id }}/details</p>
+</body>
+</html>

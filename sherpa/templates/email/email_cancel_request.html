@@ -1,0 +1,16 @@
+{% extends "email/base.html" %}
+{% load humanize %}
+
+{# Email sent to support staff when a company sends a cancel request. #}
+{% block title %}
+Cancellation Request Submitted - {{company_name}}
+{% endblock %}
+
+{% block content %}
+Reason: {{reason}}<br/>
+{% if reason_text %}
+Reason text: {{reason_text}}<br/>
+{% endif %}
+Status: {{status}}<br/>
+<a href="{{domain}}{% url 'admin:sherpa_subscriptioncancellationrequest_change' id %}">View Request Here</a>
+{% endblock %}

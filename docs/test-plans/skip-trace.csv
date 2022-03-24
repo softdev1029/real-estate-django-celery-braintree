@@ -1,0 +1,96 @@
+Test Scenario,Test Case,Test Case Description,Expected Result
+Skip Trace,Skip Trace,User can create single skip trace with valid data,User should be able to create single skip trace with valid data
+Skip Trace,Skip Trace,User can export single campaign,User should be able to export single campaign
+Skip Trace,Skip Trace,User can create single skip trace with only on search,User should be able to create single skip trace with only on search
+Skip Trace,Skip Trace,User can export single skip trace with only on search,User should be able to export single skip trace with only on search
+Skip Trace,Skip Trace,Validation for mandatory fields in single skip trace page,Validation should verify for mandatory fields in single skip trace page
+Skip Trace,Skip Trace,Placeholder name for fields in in single skip trace page,Placeholder name should display for fields in single skip trace page
+Skip Trace,Skip Trace,User can push single skip trace to existing campaign,User should be able to push single skip trace to existing campaign
+Skip Trace,Skip Trace,User can create single skip trace with any of the mandatory field blank,User should be able to create single skip trace with any of the mandatory field blank
+Skip Trace,Skip Trace,User can create single skip trace with zero credits,User should be able to create single skip trace with zero credits
+Skip Trace,Skip Trace,User can create single skip trace on entering valid inputs into all fields and click on close button,User should be able to create single skip trace on entering valid inputs into all fields and click on close button
+Skip Trace,Skip Trace,User can create batch skip trace by Uploading valid prospect file,User should be able to create batch skip trace by Uploading valid prospect file
+Skip Trace,Skip Trace,User can push batch skip trace to existing campaign,User should be able to push batch skip trace to existing campaign
+Skip Trace,Skip Trace,User able to edit the mapping in Bulk add skip trace,User should be able to edit the mapping in Bulk add skip trace
+Skip Trace,Skip Trace (Campaign).,User can see property does not have a prospect name that are at top of the recipients list,User should be able to see property does not have a prospect name that are at top of the recipients list
+Skip Trace,Skip Trace (Campaign).,User can see warning icon with a hover for property does not have prospect name.,User should be able to see warning icon with a hover for property does not have prospect name.
+Skip Trace,Skip Trace (Campaign).,User will be prompted to property-only (no toggle needed) single skip modal,User should be able to prompt to property-only (no toggle needed) single skip modal
+Skip Trace,Skip Trace (Campaign).,User is able to add credits and start skip trace,User should be able to add credits and start skip trace
+Skip Trace,Skip Trace (Campaign).,User can complete skip trace.,User should be able to complete skip trace.
+Skip Trace,Skip Trace (Campaign).,User can see skip traced a record from the details page in skip trace tab.,User should be able to skip traced a record from the details page in skip trace tab.
+Skip Trace,Skip Trace Undeliverable Properties,User can see 'skip trace the properties' link from undeliverable stat,User should be able to see 'skip trace the properties' link from undeliverable stat
+Skip Trace,Skip Trace Undeliverable Properties,User can view a modal confirming the amount of records and charge for skip trace on click on skip trace the properties link,User should be able to view a modal confirming the amount of records and charge for skip trace on click on skip trace the properties link
+Skip Trace,Skip Trace Undeliverable Properties,User is able to process the skip trace once confirm the skip trace charge,Usershould be able to process the skip trace once confirm the skip trace charge
+Skip Trace,Skip Trace Undeliverable Properties,User can access from skip trace tab,User should be able to access from skip trace tab
+SMS Campaign/ ,Campaign Details Page,User can upload a prospect list direct to a campaign,User should be able to upload a prospect list direct to a campaign
+SMS Campaign/ ,Campaign Details Page,Markets drop down check the table data changing according to the market,Markets drop down should be checked the table data changing according to the market
+SMS Campaign/ ,Campaign Details Page,"Status drop down in campaign table ,check table data is changing according to status selected","Status drop down in campaign table ,check table data is changing according to status selected"
+SMS Campaign/ ,Campaign Details Page,Create campaign by creating campaign with valid and invalid data,Campaign should be able to create campaign with valid and invalid data
+SMS Campaign/ ,Campaign Details Page,User can export single campaign,User should be able to export single campaign
+SMS Campaign/ ,Campaign Details Page,User can export campaign list,User should be able to export campaign list
+SMS Campaign/ ,Campaign Details Page,Columns data is getting update on campaign table on modification on campaign,Columns data should be able to  update on campaign table on modification on campaign
+SMS Campaign/ ,Campaign Details Page,User can edit a campaign,User should be able to edit a campaign
+SMS Campaign/ ,Campaign Details Page,User can Archive campaign,User should be able to Archive campaign
+SMS Campaign/ ,Campaign Details Page,User can Unarchive campaign,User should be able to Unarchive campaign
+SMS Campaign/ ,Campaign Details Page,User able search campaign with name,User should be able to search campaign with name
+SMS Campaign/ ,Campaign Details Page,User is able to filter unread messages in campaign,User should be able to filter unread messages in campaign
+SMS Campaign/ ,Campaign Details Page,User can access conversation from unread message list,User should be able to access conversation from unread message list
+SMS Campaign/ ,Campaign Details Page,"User can toggle 'Verified', 'Qualified', 'Priority' & 'Wrong Number' options","User should be able to toggle 'Verified', 'Qualified', 'Priority' & 'Wrong Number' options"
+SMS Campaign/ ,Campaign Details Page,User can toggle 'DNC' option and conversation is removed from unread message list,User should be able to toggle 'DNC' option and conversation is removed from unread message list
+SMS Campaign/ ,Campaign Details Page,User can send messages,User should be able to send messages
+SMS Campaign/ ,Campaign Details Page,User can send a message using a quick reply,User should be able to send a message using a quick reply
+SMS Campaign/ ,Campaign Details Page,User can save a message as a new quick reply,User should be able to save a message as a new quick reply
+SMS Campaign/ ,Campaign Details Page,User can search for a quick reply,User should be able to search for a quick reply
+SMS Campaign/ ,Campaign Details Page,User can add a new quick reply message from the quick reply menu,User should be able to add a new quick reply message from the quick reply menu
+SMS Campaign/ ,Campaign Details Page,User can edit an existing quick reply message from the quick reply menu,User should be able to edit an existing quick reply message from the quick reply menu
+SMS Campaign/ ,Campaign Details Page,User can add a new note from the conversation view,User should be able to add a new note from the conversation view
+SMS Campaign/ ,Campaign Details Page,User can toggle all prospect options,User should be able to toggle all prospect options
+SMS Campaign/ ,Campaign Details Page,User can add a new lead stage,User should be able to add a new lead stage
+SMS Campaign/ ,Campaign Details Page,User can edit an existing lead stage,User should be able toedit an existing lead stage
+SMS Campaign/ ,Campaign Details Page,User can delete an existing lead stage,User should be able to delete an existing lead stage
+SMS Campaign/ ,Campaign Details Page,User can call a prospect,User should be able to call a prospect
+SMS Campaign/ ,Campaign Details Page,User can edit a prospect,User should be able to edit a prospect
+SMS Campaign/ ,Campaign Details Page,User can remove prospect status,User should be able to remove prospect status
+SMS Campaign/ ,Campaign Details Page,User can add prospect status,User should be able to add prospect status
+SMS Campaign/ ,Campaign Details Page,User can duplicate a prospect,User should be able to duplicate a prospect
+SMS Campaign/ ,Campaign Details Page,"User can block, unblock & report prospect as litigator","User should be able to block, unblock & report prospect as litigator"
+SMS Campaign/ ,Campaign Details Page,User can toggle all prospect options,User should be able to toggle all prospect options
+SMS Campaign/ ,Campaign Details Page,User can assign a tag to a prospect,User should be able to assign a tag to a prospect
+SMS Campaign/ ,Campaign Details Page,User can assign a lead stage to a prospect,User should be able to assign a lead stage to a prospect
+SMS Campaign/ ,Campaign Details Page,User can assign an Agent to a prospect,User should be able to assign an Agent to a prospect
+SMS Campaign/ ,Campaign Details Page,User can assign a Relay to a prospect,User should be able to assign a Relay to a prospect
+SMS Campaign/ ,Campaign Details Page,User can assign a Reminder to a prospect,User should be able to assign a Reminder to a prospect
+SMS Campaign/ ,Campaign Details Page,User can 'Email to CRM,User should be able to 'Email to CRM
+SMS Campaign/ ,Campaign Details Page,User can 'Push to Zapier,User should be able to 'Push to Zapier
+SMS Campaign/ ,Campaign Details Page,User can add/edit/delete a note to a prospect,User should be able to add/edit/delete a note to a prospect
+SMS Campaign/ ,Campaign Details Page,Import stats values are updated on changing message status,Import stats values should be updated on changing message status
+SMS Campaign/ ,Campaign Details Page,Functionality of create follow up,Functionality of create follow up
+SMS Campaign/ ,Campaign Details Page,Add Prospects by adding prospects to campaign,Should Add Prospects by adding prospects to campaign
+SMS Campaign/ ,Campaign Details Page,Create a new SMS Template,Should be able to create a new SMS Template
+SMS Campaign/ ,Campaign Details Page,Search for SMS Templates,should be able to search for SMS Templates
+SMS Campaign/ ,Campaign Details Page,User can mark a prospect as DNC,User should be able to mark a prospect as DNC
+SMS Campaign/ ,Prospect Details,User can send messages,User should be able to send messages
+SMS Campaign/ ,Prospect Details,User can send a message using a quick reply,User should be able to send a message using a quick reply
+SMS Campaign/ ,Prospect Details,User can save a message as a new quick reply,User should be able to save a message as a new quick reply
+SMS Campaign/ ,Prospect Details,User can search for a quick reply,User should be able to search for a quick reply
+SMS Campaign/ ,Prospect Details,User can add a new quick reply message from the quick reply menu,User should be able to add a new quick reply message from the quick reply menu
+SMS Campaign/ ,Prospect Details,User can edit an existing quick reply message from the quick reply menu,User should be able to edit an existing quick reply message from the quick reply menu
+SMS Campaign/ ,Prospect Details,User can add a new note from the conversation view,User should be able to add a new note from the conversation view
+SMS Campaign/ ,Prospect Details,User can toggle all prospect options,User should be able to toggle all prospect options
+SMS Campaign/ ,Prospect Details,User can call a prospect,User should be able to call a prospect
+SMS Campaign/ ,Prospect Details,User can edit a prospect,User should be able to edit a prospect
+SMS Campaign/ ,Prospect Details,User can remove prospect status,User should be able to remove prospect status
+SMS Campaign/ ,Prospect Details,User can add prospect status,User should be able to add prospect status
+SMS Campaign/ ,Prospect Details,User can duplicate a prospect,User should be able to duplicate a prospect
+SMS Campaign/ ,Prospect Details,"User can block, unblock & report prospect as litigator","User should be able to block, unblock & report prospect as litigator"
+SMS Campaign/ ,Prospect Details,User can toggle all prospect options,User should be able to toggle all prospect options
+SMS Campaign/ ,Prospect Details,User can assign a tag to a prospect,User should be able to assign a tag to a prospect
+SMS Campaign/ ,Prospect Details,User can assign a lead stage to a prospect,User should be able to assign a lead stage to a prospect
+SMS Campaign/ ,Prospect Details,User can assign an Agent to a prospect,User should be able to assign an Agent to a prospect
+SMS Campaign/ ,Prospect Details,User can assign a Relay to a prospect,User should be able to assign a Relay to a prospect
+SMS Campaign/ ,Prospect Details,User can assign a Reminder to a prospect,User should be able to assign a Reminder to a prospect
+SMS Campaign/ ,Prospect Details,User can 'Email to CRM,User should be able to 'Email to CRM
+SMS Campaign/ ,Prospect Details,User can 'Push to Zapier,User should be able to 'Push to Zapier
+SMS Campaign/ ,Prospect Details,User can add/edit/delete a note to a prospect,User should be able to add/edit/delete a note to a prospect
+SMS Campaign/ ,Prospect Page > Add to SMS Campaign,User can see a prompt add the direct mail campaign to an SMS campaign,User should be able to see the prompt add the direct mail campaign to an SMS campaign
+SMS Campaign/ ,Prospect Page > Add to SMS Campaign,User can send a text message once the campaign is added to the SMS Campaign,User should be able to send a text message once the campaign is added to the SMS Campaign

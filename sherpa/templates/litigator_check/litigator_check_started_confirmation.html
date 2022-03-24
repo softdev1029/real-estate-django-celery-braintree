@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    .login-box{
+        margin-top:100px;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block body_class %}gray-bg{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div class="login-box">
+                <h2 class="text-center"><i class="fa fa-check-circle" style="color:#65C8CE;"></i> Litigator Check Started!</h2>
+                <p  class="text-center">Email has been sent to <strong>{{ email_address }}</strong></p>
+                <p class="text-center" style="margin-top: 20px;"><a href="{% url 'check_litigator_status' upload_litigator_check.token %}" class="btn btn-primary">See Status</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

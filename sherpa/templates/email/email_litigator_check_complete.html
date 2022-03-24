@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <p>Congrats! Your litigator scrub and address validation is complete!<br />
+            Below are some stats from the check.<br />
+            To download the litigator numbers found please click the following link. </p>
+
+        {{site.domain}}{% url 'check_litigator_status' upload_litigator_check.token %}
+
+        <br />
+        <p><strong>File:</strong> {{ upload_litigator_check.uploaded_filename }}</p>
+        <p><strong>Total Records:</strong> {{ upload_litigator_check.total_rows }}</p>
+        <p><strong>Total Phone Numbers:</strong> {{ upload_litigator_check.total_phone_numbers }}</p>
+        <p><strong>Serial Litigators:</strong> {{ upload_litigator_check.total_litigators }}</p>
+        <p><strong>Pre-Litigators:</strong> {{ upload_litigator_check.total_complainers }}</p>
+        <p><strong>Litigator Associates:</strong> {{ upload_litigator_check.total_associated }}</p>
+
+        <p><strong>Thanks!</strong></p>
+		<p>- LeadSherpa.com</p>
+
+    </body>
+</html>

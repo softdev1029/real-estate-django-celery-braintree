@@ -1,0 +1,49 @@
+﻿Test Scenario,Test Case,Test Case Description,Expected Result
+SMS Campaign,SMS Campaign,User can upload a prospect list direct to a campaign,User should be able to upload a prospect list direct to a campaign
+,SMS Campaign,Markets drop down check the table data changing according to the market,Markets drop down check the table data should be changed according to the market
+,SMS Campaign,"Status drop down in campaign table ,check table data is changing according to status selected","Status drop down in campaign table ,check table data should be changed according to status selected"
+,SMS Campaign,Create campaign by creating campaign with valid and invalid data,should be able to create campaign by creating campaign with valid and invalid data
+,SMS Campaign,User can export single campaign,User should be able to  export single campaign
+,SMS Campaign,User can export campaign list,User should be able to export campaign list
+,SMS Campaign,Columns data is getting update on campaign table on modification on campaign,Columns data should get update on campaign table on modification on campaign
+,SMS Campaign,User can edit a campaign,User should be able to edit a campaign
+,SMS Campaign,User can Archive campaign,User should be able to  Archive campaign
+,SMS Campaign,User can Unarchive campaign,User should be able to  Unarchive campaign
+,SMS Campaign,User able search campaign with name,User should be able to  search campaign with name
+,SMS Campaign,User is able to filter unread messages in campaign,User should be able to filter unread messages in campaign
+,SMS Campaign,User can access conversation from unread message list,User should be able to  access conversation from unread message list
+,SMS Campaign,"User can toggle 'Verified', 'Qualified', 'Priority' & 'Wrong Number' options","User should be able to  toggle 'Verified', 'Qualified', 'Priority' & 'Wrong Number' options"
+,SMS Campaign,User can toggle 'DNC' option and conversation is removed from unread message list,User should be able to  toggle 'DNC' option and conversation is removed from unread message list
+,SMS Campaign,User can send messages,User should be able to  send messages
+,SMS Campaign,User can send a message using a quick reply,User should be able to  send a message using a quick reply
+,SMS Campaign,User can save a message as a new quick reply,User should be able to save a message as a new quick reply
+,SMS Campaign,User can search for a quick reply,User should be able to search for a quick reply
+,SMS Campaign,User can add a new quick reply message from the quick reply menu,User should be able to  add a new quick reply message from the quick reply menu
+,SMS Campaign,User can edit an existing quick reply message from the quick reply menu,User should be able to  edit an existing quick reply message from the quick reply menu
+,SMS Campaign,User can add a new note from the conversation view,User should be able to  add a new note from the conversation view
+,SMS Campaign,User can toggle all prospect options,User should be able to  toggle all prospect options
+,SMS Campaign,User can add a new lead stage,User should be able to add a new lead stage
+,SMS Campaign,User can edit an existing lead stage,User should be able to edit an existing lead stage
+,SMS Campaign,User can delete an existing lead stage,User should be able to delete an existing lead stage
+,SMS Campaign,User can call a prospect,User should be able to  call a prospect
+,SMS Campaign,User can edit a prospect,User should be able to edit a prospect
+,SMS Campaign,User can remove prospect status,User should be able to remove prospect status
+,SMS Campaign,User can add prospect status,User should be able to add prospect status
+,SMS Campaign,User can duplicate a prospect,User should be able to duplicate a prospect
+,SMS Campaign,"User can block, unblock & report prospect as litigator","User  should be able to  block, unblock & report prospect as litigator"
+,SMS Campaign,User can toggle all prospect options,User should be able to  toggle all prospect options
+,SMS Campaign,User can assign a tag to a prospect,User should be able to  assign a tag to a prospect
+,SMS Campaign,User can assign a lead stage to a prospect,User should be able to assign a lead stage to a prospect
+,SMS Campaign,User can assign an Agent to a prospect,User should be able to assign an Agent to a prospect
+,SMS Campaign,User can assign a Relay to a prospect,User should be able to  assign a Relay to a prospect
+,SMS Campaign,User can assign a Reminder to a prospect,User should be able to assign a Reminder to a prospect
+,SMS Campaign,User can 'Email to CRM,User should be able to  'Email to CRM
+,SMS Campaign,User can 'Push to Zapier,User should be able to  'Push to Zapier
+,SMS Campaign,User can add/edit/delete a note to a prospect,User should be able to  add/edit/delete a note to a prospect
+,SMS Campaign,Import stats values are updated on changing message status,Import stats values should be updated on changing message status
+,SMS Campaign,Functionality of create follow up,Functionality of create follow up
+,SMS Campaign,Add Prospects by adding prospects to campaign,Should be able to add Prospects by adding prospects to campaign
+,SMS Campaign,Create a new SMS Template,Should be able to create a new SMS Template
+,SMS Campaign,Search for SMS Templates,Should be able to search for SMS Templates
+,SMS Campaign,User can mark a prospect as DNC,User should be able to  mark a prospect as DNC
+,SMS Campaign,"User can download the campaigns with all of the campaign stats in that list (Pieces delivered, Delivery Rate, Undeliverable, Response Rate, Incoming Calls, Incoming Texts, Opt Outs, Net Lead Rate, Cost Per Lead, Cost Per Appointment, Cost Per Deal) ","User should be able to  download the campaigns with all of the campaign stats in that list (Pieces delivered, Delivery Rate, Undeliverable, Response Rate, Incoming Calls, Incoming Texts, Opt Outs, Net Lead Rate, Cost Per Lead, Cost Per Appointment, Cost Per Deal) "

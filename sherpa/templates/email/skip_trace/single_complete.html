@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <p>Hi {{ rep.first_name }}, your single skip trace is complete!</p>
+    <p><a href="{{application_url}}/skip-trace"><strong>Download your data here.</strong></a></p>
+    <p><strong>IMPORTANT:</strong></p>
+    <p><strong>Please note:</strong> Your skip trace results have not been scrubbed against the National DNC Registry. It is up to the end-user to determine whether scrubbing against the National DNC Registry is necessary prior to calling the phone numbers provided.</p>
+    <p><a href="https://youtu.be/J2sUqtAk-Aw"><strong>Understand your skip trace data - please watch this video to learn more.</strong></a></p>
+    <br>
+    <p>============================</p>
+    <br>
+    <p><strong>Rows Processed:</strong> {{upload_skip_trace.last_row_processed}} of {{upload_skip_trace.total_rows}}</p>
+    <p><strong>Total Hits:</strong> {{upload_skip_trace.total_hits}}</p>
+    <p><strong>Total Cost:</strong> $0.25</p>
+    <br>
+    </body>
+</html>

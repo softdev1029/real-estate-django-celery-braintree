@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    .outside-box{
+        margin-top:100px;
+        background-color: #ffffff;
+        padding: 40px;
+{#        padding-right: 40px;#}
+{#        padding-left: 40px;#}
+        border-radius: 8px;
+    }
+    #video-player-box{
+        width: 640px;
+        height: 360px;
+        background-color: grey;
+    }
+</style>
+{% endblock %}
+
+{% block body_class %}gray-bg{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+            <div class="outside-box col-md-12">
+                <div class="col-md-8">
+                    <div id="video-player-box">
+                        <div class="text-center" style="color: white; padding-top: 130px; font-size: 5em;"><i class="fa fa-youtube-square"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center" style="margin-top: 100px;">
+                        <h1><i class="fa fa-check-circle" style="color:#65C8CE;"></i> Scrub Litigator List</h1>
+                    </div>
+                    <form method="post">
+                        <div class="text-center" style="margin-top: 30px;">
+                            <a href="{%  url 'litigator_check_select_file' %}" class="btn btn-primary btn-lg">Start Here</a>
+{#                            <button type="submit" class="btn btn-primary btn-lg">Start Here</button>#}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+    </div>
+</div>
+{% endblock %}

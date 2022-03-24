@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <p>Hi {{ rep.first_name }}, your Push To Campaign is complete!</p>
+    <br>
+    <p><strong>Skipped Trace File:</strong> {{upload_skip_trace.uploaded_filename}}</p>
+    <p><strong>Campaign: </strong><a href="{{site.domain}}/campaign/sms/{{ upload_skip_trace.push_to_campaign_campaign_id }}/details">{{upload_skip_trace.push_to_campaign_campaign_name}}</a></p>
+    <p><strong>Total Prospects:</strong> {{upload_skip_trace.total_rows_push_to_campaign}}</p>
+
+    <p><strong>Mobile Phone:</strong> {{upload_skip_trace.push_to_campaign_mobile_phone_count}}</p>
+    <p><strong>Landline Phone:</strong> {{upload_skip_trace.push_to_campaign_landline_phone_count}}</p>
+    <p><strong>DNC Skipped:</strong> {{upload_skip_trace.push_to_campaign_dnc_count}}</p>
+    <p><strong>Litigator Skipped:</strong> {{upload_skip_trace.push_to_campaign_litigator_count}}</p>
+    </body>
+</html>

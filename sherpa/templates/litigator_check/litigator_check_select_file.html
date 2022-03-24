@@ -1,0 +1,375 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link href="/static/css/plugins/dropzone/basic.css" rel="stylesheet" xmlns="http://www.w3.org/1999/html"/>
+<link href="/static/css/plugins/dropzone/dropzone.css" rel="stylesheet" />
+<script src="https://unpkg.com/flatfile-csv-importer/build/dist/index.min.js"></script>
+
+<style>
+    .well {
+        min-height: 20px;
+        padding: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        background-color: #ffffff;
+        border-top: 1px solid #e3e3e3;
+        border-bottom: 0px solid #e3e3e3;
+        border-radius: 4px;
+    }
+    .file-drag-region {
+        margin: 30px;
+        padding: 80px;
+        border: 2px dashed #ccc;
+        text-align: center;
+    }
+    .file-drag-region.dragging {
+        background: #eee;
+    }
+        .breadcrumb-custom a {
+        color: #676a6c;
+    }
+
+    .breadcrumb-custom {
+        font-size: 13px;
+    }
+
+    #watch-video-link {
+        margin-left: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 25px;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block extra_script %}
+
+<script>
+    var verifiedRecaptcha = false;
+    $(document).ready(function(){
+        loadFlatFile()
+    });
+
+    function loadFlatFile() {
+        // Load CSV files via Flatfile
+        // Uncomment to use beta (url might change per what Flatfile support says to use).
+        //FlatfileImporter.setMountUrl("https://staging--flatfile-lite.netlify.com/?key=:key")
+        FlatfileImporter.setVersion(2)
+        var primaryColor = '#65C8CE';
+        var importer = new FlatfileImporter('b9493b04-b8d3-435d-9356-f7c37086c756', {
+            type: 'Litigator check',
+            maxRecords: 100000,
+            allowInvalidSubmit: true,
+            disableManualInput: true,
+            managed: true,
+            styleOverrides: {
+                primaryButtonColor: primaryColor,
+                successColor: primaryColor,
+            },
+            fields: [
+                {
+                    label: 'First Name',
+                    key: 'first_name',
+                },
+                {
+                    label: 'Last Name',
+                    key: 'last_name',
+                },
+                {
+                    label: 'Property Address',
+                    key: 'street',
+                    alternates: ["Address", "Street"],
+                },
+                {
+                    label: 'Property City',
+                    key: 'city',
+                    alternates: ["City"],
+                },
+                {
+                    label: 'Property State',
+                    key: 'state',
+                    alternates: ["State"],
+                },
+                {
+                    label: 'Property Zip',
+                    key: 'zipcode',
+                    alternates: ["Zip", "Zip Code"],
+                },
+                {
+                    label: 'Mailing Address',
+                    key: 'mailing_street',
+                },
+                {
+                    label: 'Mailing City',
+                    key: 'mailing_city',
+                },
+                {
+                    label: 'Mailing State',
+                    key: 'mailing_state',
+                },
+                {
+                    label: 'Mailing Zip',
+                    key: 'mailing_zipcode',
+                    alternates: ["Mail Zip"],
+                },
+                {
+                    label: 'Phone 1',
+                    key: 'phone_1_number',
+                },
+                {
+                    label: 'Phone 2',
+                    key: 'phone_2_number',
+                },
+                {
+                    label: 'Phone 3',
+                    key: 'phone_3_number',
+                },
+                {
+                    label: 'Email',
+                    key: 'email',
+                },
+                {
+                    label: 'Custom 1',
+                    key: 'custom_1',
+                },
+                {
+                    label: 'Custom 2',
+                    key: 'custom_2',
+                },
+                {
+                    label: 'Custom 3',
+                    key: 'custom_3',
+                },
+            ],
+        });
+
+        importer.setCustomer({
+            userId: "{{ request.user }}",
+        });
+        var overCharLimit= null;
+        var overCharLimitFlag = false;
+        var charLimit = 255;
+        importer.registerRecordHook((record, index) => {
+            var data = Object.entries(record);
+            var col= 1;
+            var overLimit = false;
+            var out = {}
+            for (var [field_name, value] of data) {
+                if (value && value.toString().length > charLimit) {
+                  overLimit = overLimit || true
+                  var field_name_array = field_name.split("_");
+                  for (var i = 0; i < field_name_array.length; i ++) {
+                      field_name_array[i] =
+                          field_name_array[i].replace(field_name_array[i][0], field_name_array[i][0].toUpperCase())
+                  }
+                  var field_name_cleaned = field_name_array.join(" ")
+                  overCharLimit = `Must have less than 255 characters.
+                      Correct ${field_name_cleaned} (column ${col}) on row ${index + 1}.`
+                  out[field_name] = {
+                      info: [
+                          {
+                              message: overCharLimit,
+                              level: "error",
+                          },
+                      ],
+                  };
+                  overCharLimitFlag = true
+                  return out
+                }
+                col += 1
+            }
+            overCharLimitFlag = overLimit
+            return out
+        });
+
+        // Launch Flatfile uploader.
+        $("#file-button-file").click(function () {
+            if(verifiedRecaptcha) {
+                launchUploader()
+                return
+            }
+            $.ajax({
+                method: "POST",
+                url: '{% url "litigator_check_select_file" %}',
+                data: {
+                    'g-recaptcha-response': $('#recaptcha-form #g-recaptcha-response').val()
+                },
+                success: function (res) {
+                    // Continue to estimate skip trace cost
+                    if(res["success"]) {
+                        verifiedRecaptcha = true;
+                        launchUploader()
+                    } else {
+                        $('.alert-danger').show();
+                    }
+                },
+            }).catch(function (error) {$('.alert-danger').show();});
+        });
+
+        function launchUploader() {
+            importer.requestDataFromUser().then(function (result) {
+                // Displays progress bar in case upload takes some time.
+                importer.displayLoader()
+                var meta = result['$meta'];
+                // If there's columns that have too many characters, close importer and show error.
+                if (overCharLimitFlag) {
+                    importer.close()
+                    $('#disclaimer-chars').html(overCharLimit);
+                    $('#alertModal').modal('show');
+                    return
+                }
+                // Submit field mapping
+                $.ajax({
+                    method: "POST",
+                    url: '{% url "litigator_check_map_fields" %}',
+                    data: {
+                        valid_data: JSON.stringify(result.validData),
+                        headers_matched: JSON.stringify(result.headersMatched),
+                        uploaded_filename: result.fileName,
+                    },
+                    success: function (res) {
+                        // Continue to litigator check
+                        if(res["id"]) {
+                            importer.displaySuccess('Uploaded file with '+
+                                meta['count_rows_accepted'] + ' records')
+                            window.location.replace('/litigator/check/start/' + res["id"])
+                        } else {
+                            importer.displayError(res['detail'])
+                        }
+                    },
+                }).catch(function (error) {
+                    importer.displayError(error)});
+            }).catch(function (error) {
+                // If importer was closed, this will trigger with error undefined.
+                // This is not a true error. Only alert if there's an error.
+                if (error) {
+                    importer.displayError('Error uploading file. Please try again.')
+                }
+            });
+        }
+    }
+
+    // CSRF code
+    function getCookie(name) {
+        var cookieValue = null;
+        var i = 0;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (i; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+        crossDomain: false, // obviates need for sameOrigin test
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type)) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+</script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script>
+
+    function recaptchaCallback() {
+        $('#file-button-file').removeAttr('disabled');
+    };
+
+</script>
+
+{% endblock %}
+
+{% block body_class %}gray-bg{% endblock %}
+
+{% block body %}
+    <div class="container">
+{#        <div style="margin-top: 30px;">#}
+{#            <h1><i class="fa fa-check-circle" style="color: #1ab394;"></i> Check Litigator List</h1>#}
+{##}
+{#        </div>#}
+
+        <div class="well" style="margin-top: 30px;">
+
+            <div class="row" style="margin-left: 20px;">
+                <ol class="breadcrumb" style="font-size: 16px;">
+                    <li>
+                        <a href="{% url 'litigator_check_home' %}"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>Select File</strong>
+                    </li>
+                    <li>
+                        <span style="color: #DDDDDD;">Map Fields</span>
+                    </li>
+                    <li>
+                        <span style="color: #DDDDDD;">Start Scrub</span>
+                    </li>
+                </ol>
+            </div>
+
+
+            <div class="alert alert-danger alert-dismissible" role="alert" style="margin-top: 30px; margin-bottom: 0px; display:none">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Invalid Recaptcha</strong> Please try again.
+            </div>
+
+            <div class="file-drag-region" style="border:0">
+                <span id="file-button-file" class="btn btn-primary btn-lg" disabled="" >Launch Uploader</span>
+                <br>
+                <br>
+                <span style="color:#CCCCCC; "><i>Launch tool to upload CSV and cleanup data as needed.</i></span>
+            </div>
+            <form action="#" method="post" enctype="multipart/form-data" id="recaptcha-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
+                            <div class="g-recaptcha" data-callback="recaptchaCallback"
+                                 data-sitekey="6Lez4moUAAAAAPS-ziRhGvujOhp1RRNEBsI4m0Mt"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div id="authorization-success-msg" style="margin-top: 20px;">
+                        <h3 class="text-center"><i class="fa fa-exclamation-triangle" style="color:#ff0000;"></i>&nbsp;Exceeded Character Count</h3>
+                        <p id="disclaimer-chars" class="text-center"></p>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}

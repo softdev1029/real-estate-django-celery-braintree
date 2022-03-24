@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <p>Hi {{ rep.first_name }}, your upload is complete!</p>
+    <br>
+    <p><strong>Uploaded File:</strong> {{upload_prospect.uploaded_filename}}</p>
+    <p><strong>Rows Processed:</strong> {{upload_prospect.last_row_processed}} of {{upload_prospect.total_rows}}</p>
+    <p><strong>Properties Uploaded:</strong> {{upload_prospect.properties_imported}}</p>
+    <p><strong>Prospects Uploaded:</strong> {{upload_prospect.prospects_imported}}</p>
+    <p><strong>Mobile Phone Prospects:</strong> {{upload_prospect.total_mobile_phones}}</p>
+    <p><strong>Landline Phone Prospects:</strong> {{upload_prospect.total_landline_phones}}</p>
+    <p><strong>Other Phone Prospects:</strong> {{upload_prospect.total_other_phones}}</p>
+    <p><strong>DNC Skipped:</strong> {{upload_prospect.total_internal_dnc2}}</p>
+{#    <p><strong>Associated DNC Prospects Skipped:</strong> {{upload_prospect.total_associated_internal_dnc}}</p>#}
+    <p><strong>Litigator Skipped:</strong> {{upload_prospect.total_litigators}}</p>
+{#    <p><strong>Associated Litigator Prospects Skipped:</strong> {{upload_prospect.total_associated_litigator_list}}</p>#}
+
+    </body>
+</html>
